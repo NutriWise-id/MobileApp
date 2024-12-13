@@ -52,7 +52,6 @@ class CameraActivity : AppCompatActivity() {
     var isCameraImage: Boolean = false
     private var isGalleryImage: Boolean = false
     private lateinit var uploadResponseObserver: Observer<UploadResponse>
-    private var daerah: String? = null
     private lateinit var context: Context
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -87,8 +86,6 @@ class CameraActivity : AppCompatActivity() {
                 showToast(this, "No internet connection.")
             }
         }
-
-        showToast(this, "Menggunakan Scanner $daerah")
 
         uploadResponseObserver = Observer { response ->
             val succes = response.status == null

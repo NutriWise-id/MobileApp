@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import okhttp3.MultipartBody
 
 class CameraViewModel (private val appRepository: AppRepository) : ViewModel() {
-    val uploadResponse: LiveData<UploadResponse> = appRepository.
+    val uploadResponse: LiveData<UploadResponse> = appRepository.uploadResponse
 
     fun uploadFile(file: MultipartBody.Part) {
         viewModelScope.launch {

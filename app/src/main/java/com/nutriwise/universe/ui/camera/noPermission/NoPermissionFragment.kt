@@ -1,60 +1,74 @@
 package com.nutriwise.universe.ui.camera.noPermission
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.nutriwise.universe.R
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
+import com.nutriwise.universe.databinding.FragmentNoPermissionBinding
+import com.nutriwise.universe.ui.camera.CameraActivity
+import com.nutriwise.universe.ui.util.showToast
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [NoPermissionFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class NoPermissionFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private var _binding: FragmentNoPermissionBinding? = null
+    private val binding get() = _binding!!
+
+    private val requestPermissionsLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+            val allGranted = permissions.values.all { it }
+            if (allGranted) {
+                // If all permissions are granted, navigate to CameraActivity
+                val intent = Intent(requireContext(), CameraActivity::class.java)
+                startActivity(intent)
+            } else {
+                // Show a toast if permissions are denied
+                showToast(requireContext(), "Berikan Izin Terlebih Dahulu")
+            }
         }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_no_permission, container, false)
+    ): View {
+        _binding = FragmentNoPermissionBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment NoPermissionFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            NoPermissionFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.btnOpenCamera.setOnClickListener {
+            checkPermissions()
+        }
+    }
+
+    private fun checkPermissions() {
+        val requiredPermissions = arrayOf(
+            Manifest.permission.CAMERA,
+            Manifest.permission.READ_MEDIA_IMAGES
+        )
+
+        val allPermissionsGranted = requiredPermissions.all { permission ->
+            ContextCompat.checkSelfPermission(requireContext(), permission) == PackageManager.PERMISSION_GRANTED
+        }
+
+        if (allPermissionsGranted) {
+            // Navigate to CameraActivity if all permissions are already granted
+            val intent = Intent(requireContext(), CameraActivity::class.java)
+            startActivity(intent)
+        } else {
+            // Request necessary permissions
+            requestPermissionsLauncher.launch(requiredPermissions)
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
