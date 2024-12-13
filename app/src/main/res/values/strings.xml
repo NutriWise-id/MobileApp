@@ -8,4 +8,36 @@
         INDONESIA EMAS</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="stunting_description">
+    Indonesia adalah salah satu negara dengan angka stunting tertinggi di dunia.
+        Menurut data WHO, sekitar 27% anak di Indonesia mengalami stunting.
+        Kondisi ini disebabkan oleh kombinasi berbagai faktor, mulai dari kurangnya edukasi gizi,
+        rendahnya akses terhadap fasilitas kesehatan, hingga kemiskinan.
+        Mengatasi stunting di Indonesia membutuhkan pendekatan holistik.
+        Tidak hanya intervensi gizi, tetapi juga perbaikan sanitasi,
+        penyuluhan kepada ibu hamil dan peningkatan akses terhadap layanan kesehatan.
+        Jika tidak ditangani, stunting dapat menurunkan kualitas sumber daya manusia
+        dan memperlambat pembangunan nasional.
+        \n\nIndonesia adalah salah satu negara dengan angka stunting tertinggi di dunia.
+        Menurut data WHO, sekitar 27% anak di Indonesia mengalami stunting.
+        Kondisi ini disebabkan oleh kombinasi berbagai faktor, mulai dari kurangnya edukasi gizi,
+        rendahnya akses terhadap fasilitas kesehatan, hingga kemiskinan.
+        Mengatasi stunting di Indonesia membutuhkan pendekatan holistik.
+        Tidak hanya intervensi gizi, tetapi juga perbaikan sanitasi,
+        penyuluhan kepada ibu hamil dan peningkatan akses terhadap layanan kesehatan.
+        Jika tidak ditangani, stunting dapat menurunkan kualitas sumber daya manusia
+        dan memperlambat pembangunan nasional.
+        \n\nIndonesia adalah salah satu negara dengan angka stunting tertinggi di dunia.
+        Menurut data WHO, sekitar 27% anak di Indonesia mengalami stunting.
+        Kondisi ini disebabkan oleh kombinasi berbagai faktor, mulai dari kurangnya edukasi gizi,
+        rendahnya akses terhadap fasilitas kesehatan, hingga kemiskinan.
+        Mengatasi stunting di Indonesia membutuhkan pendekatan holistik.
+        Tidak hanya intervensi gizi, tetapi juga perbaikan sanitasi,
+        penyuluhan kepada ibu hamil dan peningkatan akses terhadap layanan kesehatan.
+        Jika tidak ditangani, stunting dapat menurunkan kualitas sumber daya manusia
+        dan memperlambat pembangunan nasional.
+</string>
+
+    <string name="camera_no_permission_description">Please give access your Camera to Access This Feature</string>
+
 </resources>

@@ -1,12 +1,12 @@
-package com.nutriwise.universe.ui.learning
+package com.nutriwise.universe.ui.home
 
 import android.content.Intent
+import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.RecyclerView
-import com.nutriwise.universe.MainActivity
-import com.nutriwise.universe.databinding.ActivitySignInBinding
 import com.nutriwise.universe.databinding.ItemFragmentHomeLearningSectionBinding
+import com.nutriwise.universe.ui.learning.LearningData
+import com.nutriwise.universe.ui.learning.learningPage.DetailLearningPageActivity
 
 class HomeSectionLearningAdapter(private val learningData: List<LearningData>): RecyclerView.Adapter<HomeSectionLearningAdapter.MyViewHolder>() {
 
@@ -17,10 +17,8 @@ class HomeSectionLearningAdapter(private val learningData: List<LearningData>): 
                 tvItemLearningFragmentHome.text = item.judul
                 ivItemLearningFragmentHome.setImageResource(item.image)
                 binding.layoutItemLearningHomeFragment.setOnClickListener {
-                    val intent = Intent(itemView.context, MainActivity::class.java)
-                    intent.putExtra(DetailHistoryActivity.JUDULARTIKEL, item.judul)
-                    intent.putExtra(DetailHistoryActivity.THUMNAIL, item.img_sejarah)
-                    intent.putExtra(DetailHistoryActivity.ARTIKEL, item.desc)
+                    val intent = Intent(itemView.context, DetailLearningPageActivity::class.java)
+                    intent.putExtra(DetailLearningPageActivity.PROJECT_ID, item.id.toString())
                     itemView.context.startActivity(intent)
                 }
             }
@@ -30,16 +28,17 @@ class HomeSectionLearningAdapter(private val learningData: List<LearningData>): 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): HomeSectionLearningAdapter.MyViewHolder {
-        val nama =""
-        return
+    ): MyViewHolder {
+        val binding = ItemFragmentHomeLearningSectionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MyViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: HomeSectionLearningAdapter.MyViewHolder, position: Int) {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val item =learningData[position]
+        holder.bind(item)
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+       return learningData.size
     }
 }

@@ -16,4 +16,16 @@
         android:name="com.nutriwise.universe.ui.learning.LearningFragment"
         android:label="Learning"
         tools:layout="@layout/fragment_learning"/>
+
+    <fragment
+        android:id="@+id/navigation_calculator"
+        android:name="com.nutriwise.universe.ui.calculator.CalculatorFragment"
+        android:label="calculator"
+        tools:layout="@layout/fragment_calculator"/>
+
+    <fragment
+        android:id="@+id/navigation_camera"
+        android:name="com.nutriwise.universe.ui.camera.noPermission.NoPermissionFragment"
+        android:label="calculator"
+        tools:layout="@layout/fragment_no_permission"/>
 </navigation>

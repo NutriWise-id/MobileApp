@@ -17,7 +17,7 @@ object DummyDataLearning {
             LearningData(
                 id = 1,
                 judul = "Rahasia Mengatasi Stunting di Masa Emas Anak",
-                image = R.drawable.icon_menu_book,
+                image = R.drawable.image_item_learning_home_fragment,
                 deskripsi = """
                     Tahukah Anda bahwa 1.000 hari pertama kehidupan adalah masa emas anak yang menentukan tumbuh kembangnya? 
                     Stunting, atau kondisi gagal tumbuh akibat kekurangan gizi kronis, adalah ancaman serius pada periode ini. 
@@ -30,7 +30,7 @@ object DummyDataLearning {
             LearningData(
                 id = 2,
                 judul = "10 Mitos Tentang Stunting yang Perlu Anda Ketahui",
-                image = "https://via.placeholder.com/150",
+                image = R.drawable.image_item_learning_home_fragment,
                 deskripsi = """
                     Banyak orang tua yang salah paham tentang stunting karena berbagai mitos yang beredar. Beberapa percaya bahwa stunting hanya masalah genetik atau tidak dapat diubah setelah terjadi. 
                     Faktanya, meskipun faktor genetik dapat memengaruhi tinggi badan, stunting lebih sering disebabkan oleh kekurangan gizi dan infeksi berulang.
@@ -42,7 +42,7 @@ object DummyDataLearning {
             LearningData(
                 id = 3,
                 judul = "Mengapa Stunting Jadi Masalah Serius di Indonesia?",
-                image = "https://via.placeholder.com/150",
+                image = R.drawable.image_item_learning_home_fragment,
                 deskripsi = """
                     Indonesia adalah salah satu negara dengan angka stunting tertinggi di dunia. Menurut data WHO, sekitar 27% anak di Indonesia mengalami stunting. 
                     Kondisi ini disebabkan oleh kombinasi berbagai faktor, mulai dari kurangnya edukasi gizi, rendahnya akses terhadap fasilitas kesehatan, hingga kemiskinan.
@@ -54,7 +54,7 @@ object DummyDataLearning {
             LearningData(
                 id = 4,
                 judul = "Pola Asuh yang Salah: Kontributor Utama Stunting",
-                image = "https://via.placeholder.com/150",
+                image = R.drawable.image_item_learning_home_fragment,
                 deskripsi = """
                     Pola asuh memiliki pengaruh besar terhadap risiko stunting pada anak. Misalnya, pemberian makanan yang tidak sesuai usia, 
                     kurangnya pengetahuan orang tua tentang gizi, dan kebiasaan buruk seperti membiarkan anak mengonsumsi makanan instan yang minim nutrisi.
@@ -66,7 +66,7 @@ object DummyDataLearning {
             LearningData(
                 id = 5,
                 judul = "Inovasi Teknologi untuk Mengatasi Stunting",
-                image = "https://via.placeholder.com/150",
+                image = R.drawable.image_item_learning_home_fragment,
                 deskripsi = """
                     Teknologi telah membuka peluang baru dalam mengatasi masalah stunting. Dari aplikasi yang memberikan edukasi tentang pola makan sehat hingga alat deteksi dini stunting, 
                     inovasi teknologi membantu para orang tua dan tenaga medis untuk memberikan intervensi yang tepat.
@@ -78,7 +78,7 @@ object DummyDataLearning {
             LearningData(
                 id = 6,
                 judul = "Gizi Ibu Hamil: Kunci Pencegahan Stunting",
-                image = "https://via.placeholder.com/150",
+                image = R.drawable.image_item_learning_home_fragment,
                 deskripsi = """
                     Kondisi gizi ibu hamil sangat menentukan risiko stunting pada anak. Kekurangan zat gizi seperti protein, zat besi, asam folat, dan kalsium dapat menghambat 
                     perkembangan janin, meningkatkan risiko bayi lahir dengan berat badan rendah, dan berujung pada stunting.
@@ -90,7 +90,7 @@ object DummyDataLearning {
             LearningData(
                 id = 7,
                 judul = "Mengenal Pentingnya ASI Eksklusif untuk Tumbuh Kembang Anak",
-                image = "https://via.placeholder.com/150",
+                image = R.drawable.image_item_learning_home_fragment,
                 deskripsi = """
                     ASI eksklusif selama enam bulan pertama kehidupan anak adalah langkah pertama dalam mencegah stunting. ASI mengandung semua nutrisi yang dibutuhkan bayi, 
                     termasuk antibodi untuk melawan infeksi. Setelah enam bulan, pemberian ASI dilanjutkan dengan makanan pendamping yang bergizi.
@@ -102,7 +102,7 @@ object DummyDataLearning {
             LearningData(
                 id = 8,
                 judul = "Sanitasi Buruk: Musuh Tersembunyi dalam Melawan Stunting",
-                image = "https://via.placeholder.com/150",
+                image = R.drawable.image_item_learning_home_fragment,
                 deskripsi = """
                     Sanitasi buruk adalah salah satu penyebab utama stunting yang sering kali diabaikan. Infeksi cacing dan diare berulang akibat air yang tidak bersih 
                     dapat menghambat penyerapan nutrisi pada anak, meskipun mereka sudah mengonsumsi makanan bergizi.
@@ -114,7 +114,7 @@ object DummyDataLearning {
             LearningData(
                 id = 9,
                 judul = "Generasi Bebas Stunting: Apa yang Bisa Kita Lakukan?",
-                image = "https://via.placeholder.com/150",
+                image = R.drawable.image_item_learning_home_fragment,
                 deskripsi = """
                     Membangun generasi bebas stunting memerlukan upaya kolektif dari berbagai pihak, termasuk pemerintah, tenaga kesehatan, orang tua, dan masyarakat. 
                     Edukasi gizi, pemberian makanan tambahan di sekolah, dan program sanitasi adalah beberapa langkah yang telah terbukti efektif.
@@ -126,7 +126,7 @@ object DummyDataLearning {
             LearningData(
                 id = 10,
                 judul = "Stunting dan Pendidikan: Mengapa Keduanya Berkaitan?",
-                image = "https://via.placeholder.com/150",
+                image = R.drawable.image_item_learning_home_fragment,
                 deskripsi = """
                     Stunting tidak hanya berdampak pada fisik anak, tetapi juga pada kemampuan belajarnya. Anak yang stunting cenderung memiliki IQ lebih rendah, 
                     kesulitan berkonsentrasi, dan prestasi akademik yang buruk. Hal ini berdampak langsung pada peluang mereka di dunia pendidikan dan karir di masa depan.

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/frame_layout_calculator_stunting"
+    android:id="@+id/frame_layout_learning_item"
     android:layout_marginTop="8dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -13,6 +13,7 @@
     app:layout_constraintTop_toBottomOf="@+id/tv_stunting_calculator">
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_image_item_learning"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToOutline="true"
@@ -21,9 +22,11 @@
         android:src="@drawable/image_home_fragment_calculator_stunting"/>
 
     <TextView
+        android:id="@+id/tv_learning_title"
         android:paddingStart="20dp"
         android:paddingTop="40dp"
         android:paddingBottom="40dp"
+        android:maxLines="4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/rubik_medium_font"
