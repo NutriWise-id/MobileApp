@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
+
+        <LinearLayout
+            android:id="@+id/LinearLayout_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/black_v2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Selamat Datang"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_user_name_home"
+                    android:textStyle="bold"
+                    android:textColor="@color/black_v2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="User"
+                    android:textSize="22sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:layout_weight="1"
+                android:src="@drawable/image_avatar_user" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_nutrition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/black_v2"
+            android:textStyle="bold"
+            android:text="Cek Nutrisi Menggunakan AI"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LinearLayout_top" />
+
+        <FrameLayout
+            android:id="@+id/frame_layout_nutrition_clickable"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:cardBackgroundColor="@color/transparent"
+            android:background="@drawable/shape_home_fragment_button_ai"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nutrition">
+
+            <TextView
+                android:paddingStart="20dp"
+                android:paddingTop="40dp"
+                android:paddingBottom="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubik_medium_font"
+                android:textColor="@color/white"
+                android:text="Cari Tahu Info Nutrisi
+                Menggunakan AI"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_marginEnd="20dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_emoji_sparkle_star"/>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_cek_by_kamus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/black_v2"
+            android:textStyle="bold"
+            android:lines="2"
+            android:text="Pelajari Dahulu \nMengenai Stunting"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frame_layout_nutrition_clickable" />
+
+        <TextView
+            android:id="@+id/tv_selengkapnya_kamus"
+            android:layout_width="0dp"
+            android:paddingTop="3dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:fontFamily=""
+            android:textColor="@color/black_v2"
+            android:lines="2"
+            android:gravity="bottom"
+            android:text="Selengkapnya"
+            android:textSize="13sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/frame_layout_nutrition_clickable" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_item_learning_fragment_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_fragment_home_learning_section"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_cek_by_kamus" />
+
+        <TextView
+            android:id="@+id/tv_stunting_calculator"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/black_v2"
+            android:textStyle="bold"
+            android:text="Kalkulator Stunting"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_item_learning_fragment_home" />
+
+        <FrameLayout
+            android:id="@+id/frame_layout_calculator_stunting"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:clickable="true"
+            app:cardBackgroundColor="@color/transparent"
+            android:clipToOutline="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_stunting_calculator">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToOutline="true"
+                android:scaleType="centerCrop"
+                android:background="@drawable/shape_home_fragment_calculator_stunting"
+                android:foreground="@drawable/shape_home_fragment_calculator_stunting"
+                android:src="@drawable/image_home_fragment_calculator_stunting"/>
+
+            <TextView
+                android:paddingStart="20dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/rubik_medium_font"
+                android:textColor="@color/white"
+                android:text="Cari Tahu Apakah Buah Hati Anda Mengalami Stunting"
+                android:textSize="20sp" />
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

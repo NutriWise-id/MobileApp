@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextInputLayoutWithRadius" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="shapeAppearance">@style/TextInputLayoutShapeAppearance</item>
+        <item name="shapeAppearanceOverlay">@style/TextInputLayoutShapeAppearanceOverlay</item>
+    </style>
+
+    <style name="TextInputLayoutShapeAppearance" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerSize">16dp</item> <!-- Adjust radius as needed -->
+    </style>
+
+    <style name="TextInputLayoutShapeAppearanceOverlay">
+        <item name="cornerSize">16dp</item> <!-- Ensure radius consistency -->
+    </style>
+
+    <!-- Style untuk BottomNavigationView -->
+    <style name="BottomNavStyle">
+        <!-- Mengatur warna ikon -->
+        <item name="itemIconTint">@color/selector_bottom_nav_color</item>
+        <item name="itemActiveIndicatorStyle">@null</item>
+    </style>
+</resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_item_learning_home_fragment"
+    android:layout_width="150dp"
+    android:layout_height="150dp"
+    android:clipToOutline="true"
+    android:background="@drawable/shape_home_fragment_item_learning">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_item_learning_fragment_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:background="@color/white"
+        android:foreground="@drawable/shape_home_fragment_item_learning"
+        android:src="@drawable/image_item_learning_home_fragment"/>
+
+    <TextView
+        android:gravity="bottom|center_horizontal"
+        android:maxLines="2"
+        android:layout_marginBottom="12dp"
+        android:id="@+id/tv_item_learning_fragment_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/white"
+        android:fontFamily="@font/roboto_medium"
+        android:textStyle="bold"
+        android:text="Apa Itu Stunting"/>
+
+</FrameLayout>

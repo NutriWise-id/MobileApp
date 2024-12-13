@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frame_layout_calculator_stunting"
+    android:layout_marginTop="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    app:cardBackgroundColor="@color/transparent"
+    android:clipToOutline="true"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/tv_stunting_calculator">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToOutline="true"
+        android:background="@drawable/shape_home_fragment_calculator_stunting"
+        android:foreground="@drawable/shape_home_fragment_calculator_stunting"
+        android:src="@drawable/image_home_fragment_calculator_stunting"/>
+
+    <TextView
+        android:paddingStart="20dp"
+        android:paddingTop="40dp"
+        android:paddingBottom="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/rubik_medium_font"
+        android:textColor="@color/white"
+        android:text="Cari Tahu Apakah Buah Hati Anda Mengalami Stunting"
+        android:textSize="20sp" />
+</FrameLayout>
