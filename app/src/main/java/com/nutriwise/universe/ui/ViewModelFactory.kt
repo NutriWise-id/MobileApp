@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.nutriwise.universe.data.di.Injection
 import com.nutriwise.universe.data.network.repository.AppRepository
+import com.nutriwise.universe.ui.camera.CameraViewModel
 import com.nutriwise.universe.ui.signin.SignInViewModel
 import com.nutriwise.universe.ui.signup.SignUpViewModel
 import com.nutriwise.universe.ui.splashscreen.SplashScreenViewModel
@@ -23,6 +24,9 @@ class ViewModelFactory(private val repository: AppRepository) :
             }
             modelClass.isAssignableFrom(SignInViewModel::class.java) -> {
                 SignInViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(CameraViewModel::class.java) -> {
+                CameraViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

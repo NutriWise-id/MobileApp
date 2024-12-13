@@ -26,16 +26,24 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.nutriwise.universe.R
+import com.nutriwise.universe.data.network.response.UploadResponse
 import com.nutriwise.universe.databinding.ActivityCameraBinding
+import com.nutriwise.universe.ui.ViewModelFactory
+import com.nutriwise.universe.ui.camera.result.ResultActivity
+import com.nutriwise.universe.ui.util.createCustomTempFile
+import com.nutriwise.universe.ui.util.isNetworkConnected
+import com.nutriwise.universe.ui.util.reduceFileImage
+import com.nutriwise.universe.ui.util.showToast
+import com.nutriwise.universe.ui.util.uriToFile
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
-import java.lang.Exception
+import kotlin.Exception
 
 class CameraActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCameraBinding
-    private lateinit var scannerViewModel: ScannerViewModel
+    private lateinit var scannerViewModel: CameraViewModel
 
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
     var imageCapture: ImageCapture? = null
@@ -53,10 +61,9 @@ class CameraActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val viewModelFactory = ViewModelFactory.getInstance(this)
-        scannerViewModel = ViewModelProvider(this, viewModelFactory)[ScannerViewModel::class.java]
+        scannerViewModel = ViewModelProvider(this, viewModelFactory)[CameraViewModel::class.java]
 
-        context = this@ScannerActivity
-        daerah = intent.getStringExtra(CameraActivity.EXTRA_DAERAH).toString()
+        context = this
 
         binding.constraintLayoutScannerHolder.visibility = View.VISIBLE
         binding.switchCamera.setOnClickListener {
@@ -89,10 +96,10 @@ class CameraActivity : AppCompatActivity() {
             Log.d("Scanner Activity", "Perform Observe")
             when {
                 succes -> {
-                    resultText = response.hasil
+                    resultText = response.prediction
                     binding.progressBarScanner.visibility = View.GONE
                     binding.constraintLayoutScannerHolder.visibility = View.VISIBLE
-                    val intent = Intent(this@ScannerActivity, ScannerResultActivity::class.java)
+                    val intent = Intent(this, ResultActivity::class.java)
                     when {
                         isCameraImage -> {
                             intent.putExtra(EXTRA_CAMERA_IMAGE, currentImageUri.toString())
@@ -107,7 +114,6 @@ class CameraActivity : AppCompatActivity() {
                         }
                     }
                     intent.putExtra(EXTRA_RESULT_SCANNER, resultText)
-                    intent.putExtra(CameraActivity.EXTRA_DAERAH, daerah)
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
                     startActivity(intent)
                 }
@@ -119,8 +125,8 @@ class CameraActivity : AppCompatActivity() {
                     resultText = null
                     response.status = "retry"
 
-                    showToast(this, response.message)
-                    Log.d("", response.message.toString())
+                    showToast(this, response.status)
+                    Log.d("", response.status.toString())
 
                     binding.progressBarScanner.visibility = View.GONE
                     binding.constraintLayoutScannerHolder.visibility = View.VISIBLE
@@ -189,7 +195,7 @@ class CameraActivity : AppCompatActivity() {
                     imageCapture
                 )
             } catch (exc: Exception) {
-                showToast(this, getString(R.string.fail_to_show_camera))
+                showToast(this, "Gagal Membuka Kamera")
                 Log.d(TAG, "startCamera: ${exc.message}")
             }
         }, ContextCompat.getMainExecutor(this))
@@ -207,7 +213,7 @@ class CameraActivity : AppCompatActivity() {
                 override fun onImageSaved(output: ImageCapture.OutputFileResults) {
 
                     currentImageUri = output.savedUri
-                    val imageFile = uriToFile(currentImageUri!!, this@ScannerActivity)
+                    val imageFile = uriToFile(currentImageUri!!, this@CameraActivity)
                     isCameraImage = true
                     uploadImage(imageFile)
                     binding.progressBarScanner.visibility = View.VISIBLE
@@ -227,7 +233,7 @@ class CameraActivity : AppCompatActivity() {
                 }
 
                 override fun onError(exc: ImageCaptureException) {
-                    showToast(this@ScannerActivity, getString(R.string.fail_to_take_picture))
+                    showToast(this@CameraActivity, "Gagal Mengambil Gambar")
                     Log.e(TAG, "onError: ${exc.message}")
                 }
             }
@@ -244,7 +250,7 @@ class CameraActivity : AppCompatActivity() {
     ) { uri: Uri? ->
         if (uri != null) {
             currentImageUri = uri
-            val imageFile = uriToFile(currentImageUri!!, this@ScannerActivity)
+            val imageFile = uriToFile(currentImageUri!!, this)
             isGalleryImage = true
             uploadImage(imageFile)
             binding.progressBarScanner.visibility = View.VISIBLE
@@ -275,11 +281,14 @@ class CameraActivity : AppCompatActivity() {
                 image.name,
                 requestImageFile
             )
-            if (daerah != null) {
-                scannerViewModel.uploadFile(multipartBody, daerah!!)
-            } else {
-                Log.d("Scanner Activity", "Daerah : $daerah")
+            try {
+                scannerViewModel.uploadFile(multipartBody)
+                Log.i("uploadImage", "file diupload")
+            }catch (e: Exception){
+
+                Log.d("uploadImage", "gagal mengupload file")
             }
+
             restartObservation()
             Log.i("uploadImage", "file diupload")
         }

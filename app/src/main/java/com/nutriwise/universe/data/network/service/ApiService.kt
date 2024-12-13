@@ -2,6 +2,8 @@ package com.nutriwise.universe.data.network.service
 
 import com.nutriwise.universe.data.network.response.RegisterResponse
 import com.nutriwise.universe.data.network.response.SignInResponse
+import com.nutriwise.universe.data.network.response.UploadResponse
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.Body
 import retrofit2.http.Field
@@ -33,6 +35,12 @@ interface ApiService {
         @Part("email_address") email: RequestBody,
         @Part("password") password: RequestBody
     ):SignInResponse
+
+    @Multipart
+    @POST("predict/{daerah}")
+    suspend fun uploadImage(
+        @Part file: MultipartBody.Part,
+    ): UploadResponse
 
 //    fun RegisterUser() {
 //        // Buat instance OkHttpClient
